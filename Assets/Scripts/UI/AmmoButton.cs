@@ -6,24 +6,29 @@ namespace Game.UI
 {
     public class AmmoButton : MonoBehaviour
     {
-        [SerializeField] private Button _button;
-        [SerializeField] private Image _image;
-        [SerializeField] private Image _shadow;
-        [SerializeField] private GameObject _selection;
-
-        public bool IsSelected
-        {
-            set
-            {
-                _selection.SetActive(value);
-            }
-        }
+        [SerializeField] private Button button;
+        [SerializeField] private Image icon;
+        [SerializeField] private Image shadow;
+        [SerializeField] private GameObject selection;
 
         public void Init(Sprite image, UnityAction call)
         {
-            _button.onClick.RemoveAllListeners();
-            _image.sprite = _shadow.sprite = image;
-            _button.onClick.AddListener(call);
+            button.onClick.RemoveAllListeners();
+            icon.sprite = shadow.sprite = image;
+            button.onClick.AddListener(call);
+        }
+
+        public void SetSelectionVisibility(bool value)
+        {
+            selection.SetActive(value);
+        }
+
+        private void OnDestroy()
+        {
+            if (button != null)
+            {
+                button.onClick.RemoveAllListeners();
+            }
         }
     }
 }

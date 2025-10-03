@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c205815f34209f4d8903fa371a58b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 35286df8ca4dadf43995fcf4e4c1402e, type: 3}
+  icon: {fileID: 21300000, guid: 35286df8ca4dadf43995fcf4e4c1402e, type: 3}
   _explosionEffect: {fileID: 4945393875550785496, guid: 8714f7a0a6458fa41831c58ff10c648f,
     type: 3}
 --- !u!1 &4229894769148324952

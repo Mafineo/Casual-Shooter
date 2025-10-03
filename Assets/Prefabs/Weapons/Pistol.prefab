@@ -264,14 +264,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58cf6cb5d156534180508bd10d77da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _availableBullets:
+  availableBullets:
   - {fileID: 6088636933323383640, guid: a3009b88b7b02ed4a8c6fe1955b84199, type: 3}
-  - {fileID: 5162163021814926062, guid: 05894dac39c46434d865cfd515e672a3, type: 3}
   - {fileID: 7621467694290107498, guid: 8b03f33ccb5798a4c8fbe0ff5874a602, type: 3}
-  _globalTarget: {fileID: 0}
-  _muzzle: {fileID: 3482902023020965507}
-  _animator: {fileID: 2357328650977829618}
-  _shootEffect: {fileID: 0}
+  - {fileID: 5162163021814926062, guid: 05894dac39c46434d865cfd515e672a3, type: 3}
+  globalTarget: {fileID: 0}
+  muzzle: {fileID: 3482902023020965507}
+  animator: {fileID: 2357328650977829618}
+  shootEffect: {fileID: 1150160147351112261, guid: 073056eb5e29b554fb24d0ffa7c7a5d2,
+    type: 3}
 --- !u!1 &4261813933655770448
 GameObject:
   m_ObjectHideFlags: 0

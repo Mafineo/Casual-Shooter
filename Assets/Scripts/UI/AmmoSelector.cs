@@ -1,41 +1,50 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Game.Enitites;
+using Game.Enitites.Weapons;
+using Game.Enitites.Bullets;
 
 namespace Game.UI
 {
     public class AmmoSelector : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private Weapon _weapon;
+        [SerializeField] private Weapon weapon;
         [Header("UI")]
-        [SerializeField] private Transform _content;
-        [SerializeField] private AmmoButton _buttonPrefab;
+        [SerializeField] private Transform content;
+        [SerializeField] private AmmoButton buttonPrefab;
 
         private List<AmmoButton> _buttons = new List<AmmoButton>();
-        private int _selectedAmmoId = 0;
+        private AmmoButton _selectedButton;
 
         private void Awake()
         {
-            LoadAmmoVariants(_weapon);
-            SelectAmmo(_weapon, 0);
+            Init(weapon);
+            SelectAmmo(weapon, 0);
         }
 
-        private void LoadAmmoVariants(Weapon weapon)
+        private void Init(Weapon weapon)
         {
-            foreach(AmmoButton ammoButton in _buttons)
+            ClearAmmoVariants();
+            LoadAmmoVariants(weapon);
+        }
+
+        private void ClearAmmoVariants()
+        {
+            foreach (AmmoButton ammoButton in _buttons)
             {
                 Destroy(ammoButton.gameObject);
             }
             _buttons.Clear();
+        }
+
+        private void LoadAmmoVariants(Weapon weapon)
+        {
             Bullet[] bulletList = weapon.BulletList;
             for (int i = 0; i < bulletList.Length; i++)
             {
-                AmmoButton ammoButton = Instantiate(_buttonPrefab, _content.transform);
+                AmmoButton ammoButton = Instantiate(buttonPrefab, content.transform);
                 int temp = i;
-                ammoButton.Init(bulletList[i].Icon, delegate { SelectAmmo(weapon, temp);  });
+                ammoButton.Init(bulletList[i].Icon, delegate { SelectAmmo(weapon, temp); });
                 _buttons.Add(ammoButton);
             }
         }
@@ -44,9 +53,12 @@ namespace Game.UI
         {
             if (weapon.LoadBullet(id))
             {
-                _buttons[_selectedAmmoId].IsSelected = false;
-                _selectedAmmoId = id;
-                _buttons[_selectedAmmoId].IsSelected = true;
+                if (_selectedButton != null)
+                {
+                    _selectedButton.SetSelectionVisibility(false);
+                }
+                _selectedButton = _buttons[id];
+                _selectedButton.SetSelectionVisibility(true);
             }
         }
     }

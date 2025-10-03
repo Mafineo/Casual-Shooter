@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4158503779741007052}
   - component: {fileID: 970280561207718121}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AmmoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,10 +202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef49622a9161f64f92de680b6fbf0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 6924988389311031802}
-  _image: {fileID: 1386646936476003093}
-  _shadow: {fileID: 7332257402675247742}
-  _selection: {fileID: 4112187896922582143}
+  button: {fileID: 6924988389311031802}
+  icon: {fileID: 1386646936476003093}
+  shadow: {fileID: 7332257402675247742}
+  selection: {fileID: 4112187896922582143}
 --- !u!1 &4112187896922582143
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 5978656165944651838}
   - component: {fileID: 1386646936476003093}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
